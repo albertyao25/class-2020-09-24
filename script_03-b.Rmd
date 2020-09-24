@@ -56,6 +56,7 @@ c) Make a nice looking graphic which shows these 10 courses.
 
 d) Write down some thoughts about what might explain these increases and decreases. Or is it all just random? How would we know?
 
+
 See [here](https://rpubs.com/dkane/week-3) for my answers. No need to copy exactly what I have done! Make yours better.
 
 ```{r, echo = FALSE}
@@ -72,12 +73,25 @@ largeinc <- sep_diff %>%
   arrange(desc(diff)) %>%
   slice(1:5)
 
+course_10 <- rbind(largedrop, largeinc) %>%
+  select(-(title.old:department.old)) 
+  
+largedrop %>% gt()
+
+largeinc %>% gt()
+
+# it appears that the biggest drops are due to heavy workload, such as Gov 50.
+# Lots of Geneds were also dropped
+
+
 ```
 
 
 ## Scene 2
 
 **Prompt:** Dean Amanda Claybaugh is worried that the amount of work that some classes assigned in the first few weeks of class. Describe an ideal Preceptor Table with no missing data which would allow us to investigate this situation. What data is missing and why? 
+
+our ideal preceptor table to 
 
 With our actual Preceptor Table, how might we investigate the effect of work assigned in the first two weeks? Would the estimated Average Treatment Effect be accurate? Why or why not?
 
