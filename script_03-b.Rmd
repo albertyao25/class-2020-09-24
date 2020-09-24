@@ -76,13 +76,22 @@ largeinc <- sep_diff %>%
 course_10 <- rbind(largedrop, largeinc) %>%
   select(-(title.old:department.old)) 
   
-largedrop %>% gt()
+largedrop %>% 
+  gt() %>%
+  tab_header(title = "Biggest Decreases in Enrollment") %>%
+  cols_label()
+  
 
 largeinc %>% gt()
 
 # it appears that the biggest drops are due to heavy workload, such as Gov 50.
 # Lots of Geneds were also dropped
 
+course_10 %>%
+  select(id, title.new, department.new, diff) %>%
+  ggplot(aes(title.new, diff)) +
+  geom_col() +
+  coord_flip()
 
 ```
 
